@@ -3,7 +3,7 @@ services:
   uwsgi:
     build: ./app
     volumes:
-      - ./app:/var/www
+      - ./app:/var/www:z
     ports:
       - "3031:3031"
     environment:
@@ -12,7 +12,7 @@ services:
   nginx:
     build: ./nginx
     volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:z
     links:
       - uwsgi
     ports:
